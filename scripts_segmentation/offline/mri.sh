@@ -2,7 +2,7 @@
 
 # SPINAL CORD EXPERIMENT
 
-for TARGET in 2 3 4
+for TARGET in '2' '3' '4'
 do
     torchrun --nproc_per_node=2 run_tta_seg.py \
     --target_data_path ../Datasets/MRI/SpinalCord/ \
@@ -21,7 +21,7 @@ do
     --weak_mult 5
 done
 
-for TARGET in UCL BIDMC HK
+for TARGET in 'UCL' 'BIDMC' 'HK'
 do
     torchrun --nproc_per_node=2 run_tta_seg.py \
     --target_data_path ../Datasets/MRI/Prostate \

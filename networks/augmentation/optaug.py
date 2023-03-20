@@ -175,7 +175,7 @@ class OptAug(nn.Module):
             selected_sub_policy_idx = torch.multinomial(prob_sub_policy, self.aug_mult, replacement=False) # [batch , aug_mult]
 
         # Losses Tracker
-        all_losses = {"H_ce_aug": [], "loss_policy": [], "H_norm" : []}
+        all_losses = {"H_ent_aug": [], "loss_policy": [], "H_norm" : []}
 
         for k in range(self.aug_mult):
             prob_sub_policy, mag_sub_policy = self.policy_predictor() # [num_sub_policy] [num_sub_policies x policy_dim]

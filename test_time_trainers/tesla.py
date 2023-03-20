@@ -162,7 +162,7 @@ class TeSLA(object):
     @torch.no_grad()
     def calibrate_bn_stats(self, bn_epochs):
         n_epochs = 0
-        print("Calibrate BN Stats !")
+        print(f"Calibrate BN Stats for {bn_epochs} epochs!")
 
         # BN calibraton
         while(n_epochs < bn_epochs):
@@ -268,7 +268,6 @@ class TeSLA(object):
 
             # Run Epoch
             for i, (x, label, _) in enumerate(self.target_loader):
-
                 if self.opt.apply_lr_scheduler:
                     self.lr_scheduler(self.optimizer_net, n_iters, max_iter)
 
@@ -318,11 +317,12 @@ class TeSLA(object):
                     feats_ema_easy = torch.mean(feats_ema_easy, dim=0)
                     soft_pseudo_labels = torch.mean(scores_ema_easy, dim=0)
 
-                    # update the nearest neighbours queue. each gpu has its own queue so gather all feats from all gpus.
-                    self.update_nearest_neighbours(concat_all_gather(feats_ema_easy), concat_all_gather(soft_pseudo_labels))
+                    if self.opt.nn_queue_size > 0:
+                        # update the nearest neighbours queue. each gpu has its own queue so gather all feats from all gpus.
+                        self.update_nearest_neighbours(concat_all_gather(feats_ema_easy), concat_all_gather(soft_pseudo_labels))
 
-                    # # get nearest neighbour based soft voting
-                    _, soft_pseudo_labels = self.get_pseudo_labels_nearest_neighbours(feats_ema_easy)
+                        # # get nearest neighbour based soft voting
+                        _, soft_pseudo_labels = self.get_pseudo_labels_nearest_neighbours(feats_ema_easy)
 
 
                 # make saved gradients zero

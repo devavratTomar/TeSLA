@@ -19,6 +19,6 @@ do
     --lr 1e-3 \
     --ema_momentum 0.99 \
     --aug_mult_easy 4 \
-    --nn_queue_size 2 \
+    --nn_queue_size 0 \
     --sub_policy_dim 2
 done

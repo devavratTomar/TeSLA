@@ -1,6 +1,6 @@
 #!/bin/bash
 
-for SEED in 43 44 45
+for SEED in 42 43 44
 do
     torchrun --nproc_per_node=2 run_tta_seg.py \
     --target_data_path ../Datasets/visda_segmentation_dataset/Cityscapes/ \

@@ -1,9 +1,9 @@
 #!/bin/bash
 
-for CORRUPTION in 'gaussian_noise' 'shot_noise' 'impulse_noise' 'defocus_blur' 'glass_blur' 'motion_blur' 'zoom_blur' 'snow' 'frost' 'fog' 'brightness' 'contrast' 'elastic_transform' 'pixelate' 'jpeg_compression' 
+# for CORRUPTION in 'gaussian_noise' 'shot_noise' 'impulse_noise' 'defocus_blur' 'glass_blur' 'motion_blur' 'zoom_blur' 'snow' 'frost' 'fog' 'brightness' 'contrast' 'elastic_transform' 'pixelate' 'jpeg_compression'
+for CORRUPTION in 'brightness' 'contrast'
 do
     torchrun --nproc_per_node=2 run_tta.py \
-    --source_data_path "../Datasets/imagenet_dataset/" \
     --target_data_path "../Datasets/imagenet_dataset/" \
     --dataset_name imagenet --experiment_dir "../Experiments/Online/ImageNet_C/${CORRUPTION}/5/TeSLA/Resnet50/Seed_0/" \
     --seed 0 \
@@ -19,6 +19,6 @@ do
     --n_neigh 1 \
     --ema_momentum 0.9 \
     --aug_mult_easy 4 \
-    --nn_queue_size 2 \
+    --nn_queue_size 0 \
     --sub_policy_dim 2
 done

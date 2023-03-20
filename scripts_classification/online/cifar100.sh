@@ -15,10 +15,10 @@ do
     --corruption ${CORRUPTION} \
     --corruption_level 5 \
     --n_neigh 1 \
-    --n_classes 10 \
+    --n_classes 100 \
     --lr 1e-3 \
     --ema_momentum 0.99 \
     --aug_mult_easy 4 \
-    --nn_queue_size 2 \
+    --nn_queue_size 0 \
     --sub_policy_dim 2
 done

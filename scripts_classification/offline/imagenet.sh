@@ -11,7 +11,7 @@ do
     --arch resnet50 \
     --corruption ${CORRUPTION} \
     --corruption_level 5 \
-    --port 9966 \
+    --port 1234 \
     --lr 0.001 \
     --batch_size 128 \
     --n_classes 1000 \
