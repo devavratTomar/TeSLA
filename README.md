@@ -16,33 +16,77 @@ Most recent test-time adaptation methods focus on only classification tasks, use
 
 ## **Requirements**
 
-## **Dataset Download Links**
-### (1) CIFAR-10C, CIFAR-100C
-### (2) ImageNet-C
-### (3) VisDA-C
-### (4) Kather
-### (5) VisDA-S
-### (6) MRI
+## **Datasets Download Links**
+| Dataset Name      	| Download Link                                                                                      	| Extract to Relative Path               	|
+|-------------------	|----------------------------------------------------------------------------------------------------	|----------------------------------------	|
+| CIFAR-10C         	| [click here](https://zenodo.org/record/2535967 )                                                   	| ../Datasets/cifar_dataset/CIFAR-10-C/  	|
+| CIFAR-100C        	| [click here](https://zenodo.org/record/3555552)                                                    	| ../Datasets/cifar_dataset/CIFAR-100-C/ 	|
+| ImageNet-C        	| [click here](https://zenodo.org/record/2536630)                                                    	| ../Datasets/imagenet_dataset/          	|
+| VisDA-C           	| [click here](https://github.com/VisionLearningGroup/taskcv-2017-public/tree/master/classification) 	| ../Datasets/visda_dataset              	|
+| Kather            	|                                                                                                    	|                                        	|
+| VisDA-S           	| [click here](https://github.com/VisionLearningGroup/taskcv-2017-public/tree/master/segmentation)   	| ../Datasets/visda_dataset              	|
+| (MRI) Spinal Cord 	| [click here](http://niftyweb.cs.ucl.ac.uk/program.php?p=CHALLENGE)                                 	| ../Datasets/MRI/SpinalCord             	|
+| (MRI) Prostate    	| [click here](https://liuquande.github.io/SAML/)                                                    	| ../Datasets/MRI/Prostate               	|
 
+## **Pre-trained Source Models Links**
+### **Classification Task**
+| Dataset Name 	| Download Link                                                                                         	| Extract to Relative Path       	|
+|--------------	|-------------------------------------------------------------------------------------------------------	|--------------------------------	|
+| CIFAR-10     	| [click here](https://drive.google.com/drive/folders/1bwf3qnaquRcfnoTfxKDwikVd_LnCitAm?usp=sharing)    	| ../Source_classifiers/cifar10  	|
+| CIFAR-100    	| [click here](https://drive.google.com/drive/folders/1bnnkYORAwrjWI0jNhfVm_w0MvZH_DwJC?usp=share_link) 	| ../Source_classifiers/cifar100 	|
+| ImageNet     	| PyTorch Default                                                               	|                                	|
+| VisDA-C      	| [click here](https://drive.google.com/drive/folders/18PFWydp5nIA2lZ_zZ5FxskwlfHS_1eHV?usp=share_link) 	| ../Source_classifier/VisDA     	|
+| Kather       	| [click here](https://drive.google.com/drive/folders/1uCDSqv-fgBsWNDZUUtshe-JG_0bs3wEQ?usp=share_link) 	| ../Source_classifier/Kather    	|
 
-## **Pre-trained Source Models**
+### **Segmentation Task**
 
-## **Code for training Source Models from scratch**
+| Dataset Name                   	| Download Link                                                                                         	| Extract to Relative Path                 	|
+|--------------------------------	|-------------------------------------------------------------------------------------------------------	|------------------------------------------	|
+| VisDA-S                        	| [click here](https://drive.google.com/drive/folders/1kxRHDKxB90PwqTcYUpMHNR1IG5DZBy8K?usp=share_link) 	| ../Source_classifier/Segmentation/VisDA/ 	|
+| MRI (Spinal Cord and Prostate) 	| [click here](https://drive.google.com/drive/folders/1cV5Y2TRKUSJiUZqzFZCRqpQzxF__H1NF?usp=share_link) 	| ../Source_classifier/Segmentation/MRI/   	|
 
-## **Examples for adapting source models using TeSLA**
+## **Code for training source models from scratch**
 
-## Classification on CIFAR, ImageNet, VisDA, and Kather datasets
+The above pre-trained source models can be obtained using the code available at: https://github.com/devavratTomar/tesla_appendix
 
-### (1) Common Image Corruptions: CIFAR-10C
-### (2) Common Image Corruptions: CIFAR-100C
-### (3) Common Image Corruptions: ImageNet-C
-### (4) Synthetic to Real Adaptation: VisDA-C
-### (5) Medical Measurement Shifts: Kather
+## **Examples of adapting source models using TeSLA**
+### Classification task on CIFAR, ImageNet, VisDA, and Kather datasets for online and offline adaptation:
+**(1) Common Image Corruptions: CIFAR-10C**
+```
+bash scripts_classification/online/cifar10.sh
+bash scripts_classification/offline/cifar10.sh
+```
 
-
-## Segmentation  on VisDA-S and MRI datasets
-
-### (1) GTA5 to CityScapes
-### (2) Domain shifts of MRI
-
+**(2) Common Image Corruptions: CIFAR-100C**
+```
+bash scripts_classification/online/cifar100.sh
+bash scripts_classification/offline/cifar100.sh
+```
+**(3) Common Image Corruptions: ImageNet-C**
+```
+bash scripts_classification/online/imagenet.sh
+bash scripts_classification/offline/imagenet.sh
+```
+**(4) Synthetic to Real Adaptation: VisDA-C**
+```
+bash scripts_classification/online/visdac.sh
+bash scripts_classification/offline/visdac.sh
+```
+**(5) Medical Measurement Shifts: Kather**
+```
+bash scripts_classification/online/kather.sh
+bash scripts_classification/offline/kather.sh
+```
+### Segmentation task on VisDA-S and MRI datasets for online and offline adaptation:
+**(1) GTA5 to CityScapes**
+```
+bash scripts_segmentation/online/cityscapes.sh
+bash scripts_segmentation/offline/cityscapes.sh
+```
+**(2) Domain shifts of MRI**
+```
+bash scripts_segmentation/online/spinalcord.sh
+bash scripts_segmentation/offline/prostate.sh
+```
 ## **Licence**
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.
