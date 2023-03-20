@@ -27,7 +27,7 @@ import submitit
 
 
 def parse_opt(module_):
-    parser = argparse.ArgumentParser("Submitit for SLAug", parents=[module_.get_opt_parser()])
+    parser = argparse.ArgumentParser("Submitit for TeSLA", parents=[module_.get_opt_parser()])
     parser.add_argument("script", help="name of the script to run")
     parser.add_argument("--ngpus", default=2, type=int, help="Number of gpus to request on each node")
     parser.add_argument("--nodes", default=1, type=int, help="Number of nodes to request")

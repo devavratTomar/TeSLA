@@ -116,18 +116,18 @@ class OptAug(nn.Module):
 
 
     def forward(self, x):
-        return self.policy_predictor(x)
+        return self.policy_predictor()
 
     @torch.no_grad()
     def sample(self, x_cuda):
         x_aug = []
         # first sample opt_aug_mult subploicies without replacement
-        prob_sub_policy, _ = self.policy_predictor(x_cuda) # [num_sub_policy]
+        prob_sub_policy, _ = self.policy_predictor() # [num_sub_policy]
         prob_sub_policy = prob_sub_policy.unsqueeze(0).repeat(x_cuda.size(0), 1)
         selected_sub_policy_idx = torch.multinomial(prob_sub_policy, self.aug_mult, replacement=False) # [batch , aug_mult]
 
         for k in range(self.aug_mult):
-            prob_sub_policy, mag_sub_policy = self.policy_predictor(x_cuda) # [num_sub_policy] [num_sub_policies x policy_dim]
+            prob_sub_policy, mag_sub_policy = self.policy_predictor() # [num_sub_policy] [num_sub_policies x policy_dim]
             prob_sub_policy = prob_sub_policy.unsqueeze(0).repeat(x_cuda.size(0), 1) # [batch, num_sub_policy]
 
             # select magnitude of current aug_mult
@@ -178,7 +178,7 @@ class OptAug(nn.Module):
         all_losses = {"H_ce_aug": [], "loss_policy": [], "H_norm" : []}
 
         for k in range(self.aug_mult):
-            prob_sub_policy, mag_sub_policy = self.policy_predictor(x_cuda) # [num_sub_policy] [num_sub_policies x policy_dim]
+            prob_sub_policy, mag_sub_policy = self.policy_predictor() # [num_sub_policy] [num_sub_policies x policy_dim]
             prob_sub_policy = prob_sub_policy.unsqueeze(0).repeat(x_cuda.size(0), 1) # [batch, num_sub_policy]
 
             # select magnitude of current aug_mult
