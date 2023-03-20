@@ -8,6 +8,7 @@ from .resnet_simclr import AdaptSupCESimCLRResNet
 from .resnet import AdaptSupCEResNet
 from .shot_resnet import AdaptSupCEResNet2
 from .resnet_adacontrast import AdaptSupCEResNet3
+from .mobilenet import AdaptSupCEMobileNet, load_network_mobilenet
 
 
 def load_network(net, path):
@@ -18,16 +19,13 @@ def load_network(net, path):
             state_dict = ckpt['model']
         else:
             state_dict = ckpt
-        # state_dict = ckpt['net']
 
         net_dict = {}
 
         for k, v in state_dict.items():
 
-            # k = k.replace("head.", "")
             if "head" not in k:
                 k = k.replace("module.", "")
-                # k = k.replace("ext.", "encoder.")
                 net_dict[k] = v
             else:
                 print(f"Removing {k}...")
@@ -50,13 +48,17 @@ def build_network(network_name, n_classes, ckpt_path=None):
                 net = AdaptSupCESimCLRResNet(network_name, n_classes)
             else:
                 net = AdaptSupCEResNet(network_name, n_classes)
+            load_network(net, ckpt_path)
         elif "vit" in network_name:
             net = AdaptSupCEVit(num_classes=n_classes)
+            load_network(net, ckpt_path)
         elif "efficientnet" in network_name:
             net = AdaptSupCEEfficientnet(network_name, n_classes)
+            load_network(net, ckpt_path)
+        elif "mobilenet" in network_name:
+            net = AdaptSupCEMobileNet(network_name, n_classes)
+            load_network_mobilenet(net, ckpt_path)
         else:
             raise NotImplementedError("The requested network architecture is not implemented !")
-
-        load_network(net, ckpt_path)
 
     return net

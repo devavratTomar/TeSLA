@@ -18,7 +18,10 @@ Most recent test-time adaptation methods focus on only classification tasks, use
 
 Fist install Anaconda (Python >= 3.8) using this [link](https://docs.anaconda.com/anaconda/install/index.html). Create the following CONDA environment by running the following command:
 ```
-conda env create -f environment.yml
+conda create --name TeSLA python=3.8
+conda activate TeSLA
+conda install pip
+pip install -r requirements.txt
 ```
 Activate the TeSLA environment as:
 ```
@@ -32,7 +35,7 @@ conda activate TeSLA
 | CIFAR-100C        	| [click here](https://zenodo.org/record/3555552)                                                    	| ../Datasets/cifar_dataset/CIFAR-100-C/ 	|
 | ImageNet-C        	| [click here](https://zenodo.org/record/2536630)                                                    	| ../Datasets/imagenet_dataset/          	|
 | VisDA-C           	| [click here](https://github.com/VisionLearningGroup/taskcv-2017-public/tree/master/classification) 	| ../Datasets/visda_dataset              	|
-| Kather            	|                                                                                                    	|                                        	|
+| Kather            	| [click here](https://github.com/agaldran/t3po)| ../Datasets/Kather/kather2016                            	|
 | VisDA-S           	| [click here](https://github.com/VisionLearningGroup/taskcv-2017-public/tree/master/segmentation)   	| ../Datasets/visda_segmentation_dataset              	|
 | (MRI) Spinal Cord 	| [click here](http://niftyweb.cs.ucl.ac.uk/program.php?p=CHALLENGE)                                 	| ../Datasets/MRI/SpinalCord             	|
 | (MRI) Prostate    	| [click here](https://liuquande.github.io/SAML/)                                                    	| ../Datasets/MRI/Prostate               	|

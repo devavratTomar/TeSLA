@@ -94,7 +94,7 @@ class OptAug(nn.Module):
         sub_policy_indices shape is [aug_mult]
         sub_policy_mags shape is [aug_mult, sub_policy_dim=2]
         """
-        fns_idxs = sub_policies[sub_policy_indices] # [aug_mult, sub_policy_dim]
+        fns_idxs = sub_policies[sub_policy_indices.cpu()] # [aug_mult, sub_policy_dim]
 
         x = x.unsqueeze(0)
         out = []
