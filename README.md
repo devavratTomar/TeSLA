@@ -33,7 +33,7 @@ conda activate TeSLA
 | ImageNet-C        	| [click here](https://zenodo.org/record/2536630)                                                    	| ../Datasets/imagenet_dataset/          	|
 | VisDA-C           	| [click here](https://github.com/VisionLearningGroup/taskcv-2017-public/tree/master/classification) 	| ../Datasets/visda_dataset              	|
 | Kather            	|                                                                                                    	|                                        	|
-| VisDA-S           	| [click here](https://github.com/VisionLearningGroup/taskcv-2017-public/tree/master/segmentation)   	| ../Datasets/visda_dataset              	|
+| VisDA-S           	| [click here](https://github.com/VisionLearningGroup/taskcv-2017-public/tree/master/segmentation)   	| ../Datasets/visda_segmentation_dataset              	|
 | (MRI) Spinal Cord 	| [click here](http://niftyweb.cs.ucl.ac.uk/program.php?p=CHALLENGE)                                 	| ../Datasets/MRI/SpinalCord             	|
 | (MRI) Prostate    	| [click here](https://liuquande.github.io/SAML/)                                                    	| ../Datasets/MRI/Prostate               	|
 
@@ -51,12 +51,12 @@ conda activate TeSLA
 
 | Dataset Name                   	| Download Link                                                                                         	| Extract to Relative Path                 	|
 |--------------------------------	|-------------------------------------------------------------------------------------------------------	|------------------------------------------	|
-| VisDA-S                        	| [click here](https://drive.google.com/drive/folders/1kxRHDKxB90PwqTcYUpMHNR1IG5DZBy8K?usp=share_link) 	| ../Source_classifier/Segmentation/VisDA/ 	|
-| MRI (Spinal Cord and Prostate) 	| [click here](https://drive.google.com/drive/folders/1cV5Y2TRKUSJiUZqzFZCRqpQzxF__H1NF?usp=share_link) 	| ../Source_classifier/Segmentation/MRI/   	|
-
+| VisDA-S                        	| [click here](https://drive.google.com/drive/folders/1kxRHDKxB90PwqTcYUpMHNR1IG5DZBy8K?usp=share_link) 	| ../Source_Segmentation/VisDA/ 	|
+| MRI (Spinal Cord and Prostate) 	| [click here](https://drive.google.com/drive/folders/1cV5Y2TRKUSJiUZqzFZCRqpQzxF__H1NF?usp=share_link) 	| ../Source_Segmentation/MRI/   	|
+<!-- 
 ## **Code for training source models from scratch**
 
-The above pre-trained source models can be obtained using the code available at: https://github.com/devavratTomar/tesla_appendix
+The above pre-trained source models can be obtained using the code available at: https://github.com/devavratTomar/tesla_appendix -->
 
 ## **Examples of adapting source models using TeSLA**
 ### Classification task on CIFAR, ImageNet, VisDA, and Kather datasets for online and offline adaptation:

@@ -159,8 +159,6 @@ class TeSLA_Seg(object):
 
         # optimizer
         self.optimizer_net = torch.optim.AdamW(self.net.parameters(), lr=self.opt.lr, weight_decay=5e-4)
-        # self.optimizer_net = torch.optim.SGD(self.net.parameters(), lr=self.opt.lr, momentum=0.9, weight_decay=5e-4)
-        # self.optimizer_net = torch.optim.RMSprop(self.net.parameters(), lr=self.opt.lr, momentum=0.9, weight_decay=1e-4)
 
         # track metrics
         self.metric_tracker = MetricTracker()

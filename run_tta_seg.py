@@ -28,6 +28,7 @@ def get_opt_parser():
     parser.add_argument("--n_classes", type=int)
     parser.add_argument("--sub_policy_dim", type=int, default=3)
     parser.add_argument("--n_epochs", type=int, default=10)
+    parser.add_argument("--bn_epochs", type=int, default=0)
     parser.add_argument("--aug_mult", type=int, default=1)
     parser.add_argument("--lr", type=float, default=1e-3)
     parser.add_argument("--apply_lr_scheduler", action="store_true", help="Whether ot not to apply learning rate scheduler")
