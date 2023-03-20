@@ -16,6 +16,15 @@ Most recent test-time adaptation methods focus on only classification tasks, use
 
 ## **Requirements**
 
+Fist install Anaconda (Python >= 3.8) using this [link](https://docs.anaconda.com/anaconda/install/index.html). Create the following CONDA environment by running the following command:
+```
+conda env create -f environment.yml
+```
+Activate the TeSLA environment as:
+```
+conda activate TeSLA
+```
+
 ## **Datasets Download Links**
 | Dataset Name      	| Download Link                                                                                      	| Extract to Relative Path               	|
 |-------------------	|----------------------------------------------------------------------------------------------------	|----------------------------------------	|
