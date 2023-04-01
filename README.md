@@ -100,3 +100,18 @@ bash scripts_segmentation/offline/cityscapes.sh
 bash scripts_segmentation/online/spinalcord.sh
 bash scripts_segmentation/offline/prostate.sh
 ```
+
+## Citation
+If you find our work useful, please consider citing:
+
+```
+@inproceedings{tomar2023TeSLA,
+  title={TeSLA: Test-Time Self-Learning With Automatic Adversarial Augmentation},
+  author={Tomar, Devavrat and Vray, Guillaume and Bozorgtabar, Behzad and Thiran, Jean-Philippe},
+  booktitle={Proceedings of the IEEE/CVF conference on computer vision and pattern recognition (CVPR)},
+  year={2023}
+}
+
+
+}
+```
